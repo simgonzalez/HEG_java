@@ -15,7 +15,7 @@ public class StatCourse {
     /**
      * Méthode principale qui lancera les autres afin d'afficher les statistiques de la course
      */
-    public static void afficherStat(){
+    public static void afficherStat() {
         resultats = chargerResultats();
         afficherResultats(resultats);
         plusRapide(resultats);
@@ -26,6 +26,7 @@ public class StatCourse {
 
     /**
      * Méthode qui affiche le nombre de fois où le dossard dossard est apparu
+     *
      * @param dossard
      */
     private static void nbFois(int dossard) {
@@ -56,7 +57,7 @@ public class StatCourse {
 
     private static void afficherResultats(ArrayList<Resultat> resultats) {
         StringBuilder sb = new StringBuilder(resultats.size() + " résultats :\n");
-        for (Resultat r: resultats) {
+        for (Resultat r : resultats) {
             sb.append(r + "\n");
         }
         System.out.println(sb);
@@ -73,6 +74,5 @@ public class StatCourse {
         }
         return resultats;
     }
-
 
 }
