@@ -72,7 +72,7 @@ public class Test {
 
     private static void genererPlanning() {
         String[] weekDays = new DateFormatSymbols().getWeekdays();
-        for (int d = 0; d < weekDays.length; d++) {
+        for (int d = 1; d < weekDays.length; d++) {
             HashSet<Recette> recettesPlanning = new HashSet<>();
             while (recettesPlanning.size() < PLANNING_SIZE_PER_DAY) {
                 recettesPlanning.add(livres.get(new Random().nextInt(livres.size())).getRecettes().get(new Random().nextInt(livres.get(0).getRecettes().size())));
