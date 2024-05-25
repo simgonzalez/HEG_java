@@ -14,16 +14,12 @@ public class CombatPersonnage {
 
     public void combat() {
         int noTour = 1;
-        while (this.perso1.getPv() > 0 && this.perso2.getPv() > 0) {
-            if (noTour > 10) {
-                actions.append("Les combattants sont fatigués, le combat est terminé\n");
-                break;
-            }
+        while ((this.perso1.getPv() > 0 && this.perso2.getPv() > 0) || noTour > 10) {
             this.combattre();
             noTour += 1;
         }
         actions.append("Fin du combat\n");
-        this.gagant();
+        this.defineGagnant();
     }
 
     private void combattre() {
@@ -36,8 +32,7 @@ public class CombatPersonnage {
         switch (action) {
             case 1:
                 this.actions.append(perso.getNom() + " attaque " + adversaire.getNom() + "\n");
-                perso.attaquer();
-                adversaire.setPv(adversaire.getPv() - (perso.getPa() - adversaire.getPd()));
+                perso.attaquer(adversaire);
                 break;
             case 2:
                 this.actions.append(perso.getNom() + " utilise sa compétence spéciale\n");
@@ -50,7 +45,7 @@ public class CombatPersonnage {
         }
     }
 
-    private void gagant() {
+    private void defineGagnant() {
         if (this.perso1.getPv() == 0) {
             actions.append(perso1.getNom() + " a gagné le combat\n");
         } else if (this.perso2.getPv() == 0) {

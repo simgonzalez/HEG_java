@@ -6,11 +6,16 @@ public class Guerrier extends Personnage {
         this.resistance = resistance;
     }
 
+    @Override
+    public void reduirePv(int montant) {
+        int degatApresReduction = montant - this.getPd() - this.resistance
+        this.setPv(this.getPv() - (degatApresReduction < 0 ? 0 : degatApresReduction));
+    }
 
     @Override
     public void defendre() {
         super.defendre();
-        this.setPd(this.getPd() + this.resistance);
+        this.setPd(this.getPd());
     }
 
     @Override

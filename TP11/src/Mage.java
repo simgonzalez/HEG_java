@@ -7,9 +7,14 @@ public class Mage extends Personnage {
     }
 
     @Override
-    public int attaquer() {
+    public int getMontantAttaque() {
+        return this.getPa() + this.puissanceMagique;
+    }
+
+    @Override
+    public void attaquer(Personnage cible) {
         this.puissanceMagique += 1;
-        return this.getPa();
+        cible.reduirePv(this.getMontantAttaque - cible.getPd());
     }
 
     @Override

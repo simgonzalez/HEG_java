@@ -59,9 +59,19 @@ public abstract class Personnage implements Combattant {
         this.pd = pd;
     }
 
+    public reduirePv(int montant) {
+        int degatApresReduction = montant - this.getPd();
+        this.setPv(this.getPv() - (degatApresReduction < 0 ? 0 : degatApresReduction));
+    }
+
     @Override
-    public int attaquer() {
-        return this.pa;
+    public getMontantAttaque() {
+        return this.getPa();
+    }
+
+    @Override
+    public void attaquer(Personnage cible) {
+        cible.reduirePv(this.getMontantAttaque());
     }
 
     @Override

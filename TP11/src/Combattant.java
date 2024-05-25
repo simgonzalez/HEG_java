@@ -1,5 +1,6 @@
 public interface Combattant {
-    int attaquer();
+    void attaquer(Personnage cible);
+    int getMontantAttaque();
     void defendre();
     void special();
 }
