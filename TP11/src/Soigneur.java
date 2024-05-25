@@ -8,6 +8,9 @@ public class Soigneur extends Personnage {
 
     @Override
     public void special() {
+        if (this.getPm() < 10) {
+            return;
+        }
         this.setPv(this.getPv() + 10);
         this.setPm(this.getPm() - 10);
     }

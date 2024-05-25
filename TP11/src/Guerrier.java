@@ -8,8 +8,8 @@ public class Guerrier extends Personnage {
 
     @Override
     public void reduirePv(int montant) {
-        int degatApresReduction = montant - this.getPd() - this.resistance
-        this.setPv(this.getPv() - (degatApresReduction < 0 ? 0 : degatApresReduction));
+        int degatApresReduction = montant - this.getPd() - this.resistance;
+        this.setPv(this.getPv() - (Math.max(degatApresReduction, 0)));
     }
 
     @Override

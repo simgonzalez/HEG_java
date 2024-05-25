@@ -41,7 +41,7 @@ public class GestionPersonnages {
             try {
                 personnages.add(PersonnageFactory.createPersonnage(data[0], data[1], Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]), Integer.parseInt(data[7])));
             } catch (UnexpectedCharacterTypeException e) {
-                System.out.println("Le persoonage" + data[1] + " n'est pas reconnu");
+                System.out.println("Le persoonage " + data[1] + " n'est pas reconnu");
             }
         }
     }

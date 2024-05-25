@@ -14,11 +14,14 @@ public class Mage extends Personnage {
     @Override
     public void attaquer(Personnage cible) {
         this.puissanceMagique += 1;
-        cible.reduirePv(this.getMontantAttaque - cible.getPd());
+        cible.reduirePv(this.getMontantAttaque() - cible.getPd());
     }
 
     @Override
     public void special() {
+        if (this.getPm() < 10) {
+            return;
+        }
         this.setPa(this.getPa() * 2);
         this.setPm(this.getPm() - 10);
     }

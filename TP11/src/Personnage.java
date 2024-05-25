@@ -59,13 +59,13 @@ public abstract class Personnage implements Combattant {
         this.pd = pd;
     }
 
-    public reduirePv(int montant) {
+    public void reduirePv(int montant) {
         int degatApresReduction = montant - this.getPd();
-        this.setPv(this.getPv() - (degatApresReduction < 0 ? 0 : degatApresReduction));
+        this.setPv(this.getPv() - (Math.max(degatApresReduction, 0)));
     }
 
     @Override
-    public getMontantAttaque() {
+    public int getMontantAttaque() {
         return this.getPa();
     }
 
@@ -76,11 +76,11 @@ public abstract class Personnage implements Combattant {
 
     @Override
     public void defendre() {
-        this.pd +=1;
+        this.pd += 1;
     }
 
     @Override
     public String toString() {
-        return this.nom + "  est de niveau " + this.niveau + ", il s'agit d'un "+ this.getClass().getSimpleName();
+        return this.nom + " est de niveau " + this.niveau + ", il s'agit d'un " + this.getClass().getSimpleName();
     }
 }
